@@ -12,62 +12,51 @@ input, textarea {
     -ms-user-select: auto !important;
     user-select: auto !important;
 }
-.disabled, [disabled] {
-    opacity: .55;
-    pointer-events: none;
-}
-.ios body {
+body {
     font-family: Assistant, sans-serif;
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-.ios .list .item-content {
-    padding-left: 0;
-}
-
-.ios .statusbar {
+.statusbar-overlay {
     background: #83c2be;
 }
-.ios .page {
+.page {
     background: #fff;
 }
-
-.ios .navbar~:not(.no-navbar) .page-content {
+.page-content {
     padding-top: 69px;
 }
-
-.ios .page.with-tabbar .page-content {
-    padding-bottom: 120px;
+.with-tabbar .page-content {
+    padding-bottom: 50px;
 }
-.ios .page.with-tabbar-button .page-content {
-    padding-bottom: 185px;
+.with-tabbar-button .page-content {
+    padding-bottom: 115px;
 }
-.ios .page.none-padding-page .page-content{
-    padding-top: 70;
+.none-padding-page .page-content{
+    padding-top: 0;
 }
-.ios .list {
+.list-block {
     margin: 25px 0;
 }
-.ios .list.none-border > ul:before {
+.list-block.none-border > ul:before {
     background-color: transparent;
 }
-.ios .list.none-border > ul:after {
+.list-block.none-border > ul:after {
     background-color: transparent;
 }
-.ios .list.none-border .item-inner:after {
+.list-block.none-border .item-inner:after {
     background-color: transparent;
 }
 
-.ios .list.none-border .item-content {
+.list-block.none-border .item-content {
     padding-right: 15px;
 }
-.ios .list.none-border .item-inner:after {
+.list-block.none-border .item-inner:after {
     background-color: transparent;
 }
 
-.ios .list.none-border .item-inner {
+.list-block.none-border .item-inner {
     border-bottom: 1px solid #EAEAEA;
     height: 60px;
 }
@@ -137,72 +126,54 @@ input, textarea {
 .modal-buttons-2 .modal-button {
     border-radius: 0px;
 }
-
-.ios .radio input[type=radio]:checked~.icon-radio {
-    border-color: #83c2be;
-    background: #83c2be;
+label.label-checkbox input[type=radio]:checked+.item-media i.icon-form-checkbox {
+    background: #8ec9c5;
 }
-
-.ios .radio input[type=radio]:checked~.icon-radio:after {
+label.label-checkbox input[type=radio]:checked+.item-media i.icon-form-checkbox:after {
     background-image: url(/static/images/radio-circle.png);
     background-size: 12px 12px;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
 }
-.ios .checkbox input[type=checkbox]:checked~i{
-    background: #83c2be;
+label.label-checkbox input[type=checkbox]:checked+.item-media i.icon-form-checkbox {
+    background-color: #8ec9c5;
 }
-.ios .checkbox input[type=checkbox]:checked~i:after {
+label.label-checkbox input[type=checkbox]:checked+.item-media i.icon-form-checkbox:after {
     background-image: url(/static/images/check.png);
 }
-
-.ios .list ul:before {
-    background-color: transparent;
-}
-
-.ios .list ul:after {
-    background-color: transparent;
-}
-
-.ios .accordion-style1 .item-inner:after {
-    background-color: transparent;
-}
-
-.ios .accordion-style1 .item-content .item-inner {
-    background-repeat: no-repeat;
-    background-position: calc(100% - 15px) center;
+.accordion-style1 .item-link .item-inner {
     background-image: url(/static/images/plus.png);
     background-size: 14px 14px;
-    border-bottom: 1px solid #EAEAEA;
 }
-
-.ios .list:not(.media-list) 
-.accordion-item-opened:not(.media-item) .accordion-item-toggle .item-inner {
+.accordion-style1.list-block:not(.media-list)
+.accordion-item-expanded:not(.media-item)>.item-link .item-inner {
     background-image: url(/static/images/minus.png);
     background-size: auto;
     border-bottom: 0;
 }
-.ios .accordion-item-content {
+.accordion-item-content {
     /* Fix for disappearing content on scroll - iOS */
     border-top: 1px solid transparent;
 }
-.ios .accordion-style1 .content-block {
+.accordion-style1 .content-block {
     padding: 0 30px;
 }
-.ios .accordion-style1 .item-content {
+.accordion-style1 .item-content {
     color: black;
     font-size: 12pt;
 }
-.ios .accordion-style1 .item-content .item-inner{
+.accordion-style1 .item-content.item-link.active-state {
+    background-color: #f6f7f8;
+}
+.accordion-style1 .item-content .item-inner{
     padding-left: 15px;
 }
 
-.ios .accordion-style2 {
+.accordion-style2 {
     margin: 0 0 10px 0; 
 }
-.accordion-style2 .accordion-item-toggle {
+.accordion-style2 .item-content {
     padding-left: 30px;
     background: #83c2bd;
 }
@@ -257,16 +228,12 @@ input, textarea {
     color: #fff;
     text-transform: uppercase;
 }
-.accordion-style2 .item-inner {
-    background-position: calc(100% - 15px) center;
+.accordion-style2 .item-link .item-inner {
     background-image: url(/static/images/arrow-down-white.png);
     background-size: auto;
-    height: 60px;
-    background-repeat: no-repeat;
-    line-height: 60px;
-    padding-right: 40px;
 }
-.accordion-style2 .accordion-item-opened .item-inner {
+.accordion-style2.list-block:not(.media-list)
+.accordion-item-expanded:not(.media-item)>.item-link .item-inner {
     background-image: url(/static/images/arrow-up-white.png);
     background-size: auto;
 }
@@ -276,17 +243,18 @@ input, textarea {
 .vue-popover.multi-buttons{
     margin-top: 25px;
 }
-.ios .submit-toolbar {
+.submit-toolbar {
     bottom: 50px;
+    background: transparent;
     height: 55px;
 }
-.ios .submit-toolbar.alt1 {
+.submit-toolbar.alt1 {
     bottom: 0;
 }
-.ios .submit-toolbar:before {
+.submit-toolbar:before {
     background-color: transparent;
 }
-.ios .submit-toolbar .toolbar-inner {
+.submit-toolbar .toolbar-inner {
     display: block;
     padding: 0;
 }
@@ -317,12 +285,12 @@ input, textarea {
     .mobile {
         display: none;
     }
-    .ios  .page { 
+    .page { 
         height: calc(100% - 75px);
         overflow: auto;
     }
-    .ios  .page .page-content { 
-        padding-top: 0 !important;
+    .page .page-content { 
+        padding-top: 0;
         margin-top: 20px !important;
         width: 1024px;
         margin: 40px auto 0 auto;
@@ -391,13 +359,13 @@ and (-webkit-device-pixel-ratio : 3) {
         display: inline-block;
         line-height: 50px;
     }
-    .ios  .page-content {
+    .page-content {
         padding-top: 109px;
     }
-    .ios  .with-tabbar .page-content {
+    .with-tabbar .page-content {
         padding-bottom: 70px;
     }
-    .ios .submit-toolbar {
+    .submit-toolbar {
         bottom: 70px;
     }
 }
